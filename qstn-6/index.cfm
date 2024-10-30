@@ -9,21 +9,20 @@
 </head>
 <body>
     <div class="d-flex flex-column justify-content-center align-items-center mt-4">
-    <h4 class="fw-bold">Divisible by 3</h4>
+    <h4 class="fw-bold">Display values using cfdump</h4>
     <form action="" method="POST">
         <div class="d-flex flex-column mt-3">
-            <input type="text" name="number" class="form-control border border-success">
+            <input type="text" name="val1" class="form-control border border-success">
+            <input type="text" name="val2" class="form-control border border-success">
             <input type="submit" value="Submit" class="btn btn-success my-2 ">
         </div>
     </form>
-    <cfif structKeyExists(form,"number")> 
-        <cfset local.num = form.number>
-        <cfset local.value=createObject("component","calculate")>
-        <cfset local.result=local.value.fn_result(local.num)>
-        <span class="fw-bold">
-          #local.result# 
+     <cfif structKeyExists(form,"val1") AND structKeyExists(form, "val2")> 
+        <cfset local.function=new calculate()>
+        <cfset local.result=local.function.display(form.val1,form.val2)>
+        <span class="fw-bold">      
         </span>
-    </cfif> 
+    </cfif>
     </div>
 </body>
 </html>
