@@ -13,17 +13,21 @@
         <cfset local.usersBorn = dateFormat(createDate(local.currentYear, local.userBmonth, local.userBday))>
         <cfset local.mothersBorn = dateFormat(createDate(local.currentYear, local.motherBmonth, local.motherBday))>
         <cfset local.motherYear = year(local.motherDob)>
-        <cfif dateCompare(local.mothersBorn,local.currentYear) LT 0>
+        <cfif dateCompare(local.mothersBorn,local.currentDate) LT 0>
             <cfset local.mothersBorn = dateFormat(createDate(local.currentYear+1, local.motherBmonth, local.motherBday))>
+        <cfelseif dateCompare(local.mothersBorn,local.currentDate) EQ 0>
+            <cfset local.mothersBorn="Today is birthday">
         </cfif>      
-        <cfif dateCompare(local.usersBorn,local.currentYear) LT 0>
+        <cfif dateCompare(local.usersBorn,local.currentDate) LT 0>
             <cfset local.usersBorn = dateFormat(createDate(local.currentYear+1, local.userBmonth, local.userBday))>
+        <cfelseif dateCompare(local.usersBorn,local.currentDate) EQ 0>
+            <cfset local.usersBorn="Today is birthday">
         </cfif>      
         <cfset local.result = structNew()>     
         <cfset local.result['Age of User'] = dateDiff("yyyy", local.userDob,local.currentDate)>
         <cfset local.result['Mother Age']=year(userDob)-motherYear>
-        <cfset local.result['Days remaining mothers Bday'] = dateDiff("d",local.mothersBorn,local.currentDate)>    
-        <cfset local.result['Days remaining users Bday'] = dateDiff("d",local.usersBorn,local.currentDate)>  
+        <cfset local.result['Days remaining mothers Bday'] = dateDiff("d",local.currentDate,local.mothersBorn)>    
+        <cfset local.result['Days remaining users Bday'] = dateDiff("d",local.currentDate,local.usersBorn)> 
         <cfreturn local.result>
     </cffunction>
 </cfcomponent>

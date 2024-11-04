@@ -2,11 +2,11 @@ function validate(){
     let num=document.getElementById('number').value;
     console.log(num);
     let span=document.getElementById('span');
-    if(isNaN(value)){
-        return true;
+    if(isNaN(num)){
+        span.textContent='Please enter number';
+        return false;
     }
     else{
-        span.textContent='Entered element is not a number';
-        return false;
+        return true;
     }
 }

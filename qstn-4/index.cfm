@@ -24,7 +24,7 @@
                 <cfif key EQ 'Day Color'>
                     <cfcontinue>
                 </cfif>
-                #key# : #local.result[key]#<br> 
+                #key# : #local.result[key]#<br>
             </cfloop><br>
             <cfloop collection=#local.colorSet# item="item">
                 <p style="color:#local.colorSet[item]#;">#item#</p> 
