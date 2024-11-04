@@ -4,17 +4,17 @@
                 "Monday" : "green", 
                 "Tuesday" : "orange", 
                 "Wednesday" : "yellow", 
-                "Thursday" : "bold black", 
+                "Thursday" : "black", 
                 "Friday" : "blue", 
-                "Saturday" : "bold red"
+                "Saturday" : "darkred"
                 }>
         <cfset obj = structNew("ordered")>
         <cfset lastFive = structNew("ordered")>
         <cfset local.currentDate = dateFormat(now())>
         <cfset local.currentMonth = month(local.currentDate)>
-        <cfset local.currentMonthWords = monthAsString(local.currentMonth,getLocale())>
+        <cfset local.currentMonthWords = monthAsString(local.currentMonth)>
         <cfset local.todaydayOfWeek = dayOfWeek(local.currentDate)>
-        <cfset local.friday = (6-local.todaydayOfWeek)-7>
+        <cfset local.friday = (6-local.todaydayOfWeek)-7> 
         <cfset local.lastFriday = dateFormat(dateAdd("d", local.friday, local.currentDate))>
         <cfset obj['Current Date'] = local.currentDate>
         <cfset obj['Current Month'] = local.currentMonth>
