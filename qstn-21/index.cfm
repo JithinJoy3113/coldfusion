@@ -1,4 +1,3 @@
-<cfapplication name="appliction1" sessionmanagement="true">
 <cfoutput>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,20 +10,21 @@
 <body>
     <div class="d-flex flex-column justify-content-center align-items-center mt-4">
     <h4 class="fw-bold">Email</h4>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <div class="d-flex flex-column mt-3">
-            <b>Birthday Baby Name:</b><input type="text" name="val1" class="form-control border border-success">
-            <b>His Email Id :</b><input type="email" name="val2" class="form-control border border-success">
-            <b>Subject :</b><input type="text" name="val3" class="form-control border border-success">
-            <b>Birthday Wishes :</b><input type="text" name="val4" class="form-control border border-success">
-            <b>Greeting image :</b><input type="file" name="val5" class="form-control border border-success">
+            <b>Birthday Baby Name:</b><input type="text" name="name" class="form-control border border-success">
+            <b>His Email Id :</b><input type="email" name="mailid" class="form-control border border-success">
+            <b>Subject :</b><input type="text" name="subject" class="form-control border border-success">
+            <b>Birthday Wishes :</b><textarea type="text" name="wish" class="form-control border border-success"></textarea>
+            <b>Greeting image :</b><input type="file" name="img" class="form-control border border-success">
             <input type="submit" value="Send Mail" class="btn btn-success my-2 ">
         </div>
     </form>
-     <cfif structKeyExists(form,"val1") AND structKeyExists(form, "val2") AND structKeyExists(form,"val3") AND structKeyExists(form, "val4") AND structKeyExists(form, "val5")> 
+     <cfif structKeyExists(form,"name") AND structKeyExists(form, "mailid") AND structKeyExists(form,"subject") AND structKeyExists(form, "wish") AND structKeyExists(form, "img")> 
         <cfset local.function=new calculate()> 
-        <cfset local.result=local.function.bdayMail(form.val1,form.val2,form.val3,form.val4,form.val5)>
-        <span class="fw-bold">      
+        <cfset local.result=local.function.bdayMail(form.name,form.mailid,form.subject,form.wish,form.img)>
+        <span class="fw-bold text-success">   
+            #local.result#   
         </span>
     </cfif>
     </div>

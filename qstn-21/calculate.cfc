@@ -1,15 +1,16 @@
 <cfcomponent>
     <cffunction  name="bdayMail" returnType="any">
-        <cfargument  name="val1">
-        <cfargument  name="val2">
-        <cfargument  name="val3">
-        <cfargument  name="val4">
-        <cfargument  name="val5">
-         <cfset image =ExpandPath(arguments.val5)>
-         <cfdump  var="#image#">
-         <cffile  action="upload" destination="#image#">
-        <cfmail  from="jithinj3113@gmail.com" subject="#arguments.val3#"  to="#arguments.val2#">     
-         #arguments.val2#     
+        <cfargument  name="name">
+        <cfargument  name="mailid">
+        <cfargument  name="subject">
+        <cfargument  name="wish">
+        <cfargument  name="img">
+         <cfset image =ExpandPath("./assets")>
+         <cffile  action="upload" destination="#image#" nameConflict="MakeUnique">
+         <cfset  img= cffile.clientFile> 
+        <cfmail  from="jithinj3113@gmail.com" subject="#arguments.subject#"  to="#arguments.mailid#" 
+        mimeattach="#image#/#img#">#arguments.wish#     
         </cfmail>
+        <cfreturn "Successfully send">
     </cffunction>
 </cfcomponent>            
