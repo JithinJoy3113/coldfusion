@@ -1,12 +1,12 @@
 <cfcomponent>
     <cffunction  name="display">
-        <cfargument  name="val1">
-        <cfargument  name="val2">
-        <cfif len(arguments.val1) EQ 0 OR len(arguments.val2) EQ 0>
-            <cfdump  var="Input the datas">
+        <cfargument  name="value1">
+        <cfargument  name="value2">
+        <cfif trim(len(arguments.value1))  OR trim(len(arguments.value2))>
+            <cfset session.result[arguments.value1]=arguments.value2> 
         <cfelse>
-             <cfset session.result[arguments.val1]=arguments.val2> 
+             <cfdump  var="Input the datas">
         </cfif>
-        <cfreturn #session.result#>
+        <cfreturn session.result>
     </cffunction>
 </cfcomponent>

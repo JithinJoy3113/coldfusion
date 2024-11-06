@@ -1,11 +1,15 @@
 <cfcomponent>
-    <cffunction  name="display">
-        <cfargument  name="val1">
-        <cfargument  name="val2">
-        <cfif len(arguments.val1) EQ 0 OR len(arguments.val2) EQ 0>
-            <cfdump  var="Input the datas">
+    <cffunction  name="display" returnType = "string">
+        <cfargument  name="value1">
+        <cfargument  name="value2">
+
+        <cfset local.result = "">
+        <cfif trim(len(arguments.value1)) OR trim(len(arguments.value2))>
+            <cfset local.result="#arguments.value1# : #arguments.value2#">
         <cfelse>
-            <cfdump  var="#arguments.val1# : #arguments.val2#">
+            <cfset local.result="Input the datas">
         </cfif>
+
+        <cfreturn local.result>
     </cffunction>
 </cfcomponent>
