@@ -17,10 +17,10 @@
             <b>Subject :</b><input type="text" name="subject" class="form-control border border-success">
             <b>Birthday Wishes :</b><textarea type="text" name="wish" class="form-control border border-success"></textarea>
             <b>Greeting image :</b><input type="file" name="img" class="form-control border border-success">
-            <input type="submit" value="Send Mail" class="btn btn-success my-2 ">
+            <input type="submit" value="Send Mail" name="submit" class="btn btn-success my-2 ">
         </div>
     </form>
-     <cfif structKeyExists(form,"name") AND structKeyExists(form, "mailid") AND structKeyExists(form,"subject") AND structKeyExists(form, "wish") AND structKeyExists(form, "img")> 
+     <cfif structKeyExists(form,"submit")> 
         <cfset local.function=new calculate()> 
         <cfset local.result=local.function.bdayMail(form.name,form.mailid,form.subject,form.wish,form.img)>
         <span class="fw-bold text-success">   

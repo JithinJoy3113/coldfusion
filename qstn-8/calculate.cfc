@@ -1,12 +1,13 @@
 <cfcomponent>
-    <cffunction  name="display">
-        <cfargument  name="val1">
-        <cfargument  name="val2">
-        <cfif len(arguments.val1) EQ 0 OR len(arguments.val2) EQ 0>
-            <cfdump  var="Input the datas">
+    <cffunction  name="display" returnType="struct">
+        <cfargument  name = "value1" type = "string" required = "true">
+        <cfargument  name = "value2" type = "string" required = "true">
+        <cfset session.result>
+        <cfif trim(len(arguments.value1)) OR trim(len(arguments.value2))>
+            <cfset session.result[arguments.value1] = arguments.value2> 
         <cfelse>
-             <cfset session.result[arguments.val1]=arguments.val2> 
+             <cfset session.result = "Input the datas">
         </cfif>
-        <cfreturn #session.result#>
+        <cfreturn session.result>
     </cffunction>
-</cfcomponent>
+</cfcomponent> 

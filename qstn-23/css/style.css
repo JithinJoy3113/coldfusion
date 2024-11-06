@@ -1,0 +1,40 @@
+body{
+    font-family: "Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif;
+    background-color: #669900;
+    margin: 17px 0 15px 0;
+}
+.formMainDiv{
+    padding: 20px;
+}
+.formDiv{
+    width: 640px;
+}
+.fromHeader{
+    background-color: #99cc00;
+}
+.headSpan{
+    font-size: 21px;
+}
+.headSpanTwo{
+    font-size: 12px;
+}
+.formInputDiv{
+    padding: 20px 14px 0 14px;
+}
+.formHead{
+    margin: 0 0 5px 0;
+    padding: 0 1% 1.1em 1%;
+    border-bottom: 1px dotted #ccc;
+}
+ul{
+    padding: 0px;
+}  
+.inputLi{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px !important;
+}
+.label{
+    font-size: 12px;
+    font-weight: bold;
+}

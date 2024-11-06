@@ -1,22 +1,26 @@
 <cfcomponent>
-    <cffunction  name="fn_result" returnType="any">
+    <cffunction  name="divisible" returnType="any">
         <cfargument  name="list" required="true">
-        <cfif len(arguments.list) GT 0>
-        <cfset numArray = listToArray(arguments.list)>
+
         <cfset local.result = "">
-        <cfloop array="#numArray#" item="num">
-            <cfif num MOD 3 NEQ 0 OR num EQ 0>
-                <cfcontinue>
-            </cfif>
-            <cfset local.result=listAppend(local.result, num)>
-        </cfloop>
+        <cfif trim(len(arguments.list))>
+           
+            <cfloop list="#arguments.list#" item="item">
+                <cfif item MOD 3 NEQ 0 OR item EQ 0>
+                    <cfcontinue>
+                </cfif>
+                <cfset local.result=listAppend(local.result, item)>
+            </cfloop>
+            <cfif len(local.result) NEQ 0>
+                <cfset local.result = "Numbers divisible by 3 : #local.result#">
+            <cfelse>
+            <cfset local.result = "No number divisible by 3">
+        </cfif>  
+
         <cfelse>
-            <cfreturn "Enter the input">
+                <cfset local.result = "Enter the input">
         </cfif>    
-        <cfif len(local.result) NEQ 0>
-            <cfreturn "Numbers divisible by 3 : #local.result#">
-        <cfelse>
-            <cfreturn "No number divisible by 3">
-        </cfif>       
+        
+        <cfreturn local.result>          
     </cffunction>
 </cfcomponent>
