@@ -1,5 +1,5 @@
 <cfcomponent>
-    <cffunction  name="display">
+    <cffunction  name="display" returnType="any">
         <cfargument  name="value1">
         <cfargument  name="value2">
         <cfset local.result = "">

@@ -6,10 +6,10 @@
         <cfset session.name = arguments.name>
         <cfset session.description = arguments.description>
         <cfset local.type = listLast(arguments.img,".")> 
-        <cfset image =ExpandPath("./assets")> 
-        <cffile  action="upload" destination="#image#" nameConflict="MakeUnique"> 
-        <cfset  img= cffile.clientFile>  
-        <cfset  local.imagePath="\#img#">     
+        <cfset local.image =ExpandPath("./assets")> 
+        <cffile  action="upload" destination="#local.image#" nameConflict="MakeUnique"> 
+        <cfset  local.img= cffile.clientFile>  
+        <cfset  local.imagePath="\#local.img#">     
         <cfset session.img = local.imagePath>
         <cfreturn local.imagePath>
     </cffunction> 

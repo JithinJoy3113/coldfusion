@@ -9,11 +9,11 @@
     </cffunction>
 
     <cffunction name="multiplyInvoke" returnType="any">
-    <cfargument name="val1">
-    <cfargument name= "val2"> 
-    <cfargument name="val3">
-    <cfargument name= "val4"> 
-    <cfset local.product = arguments.val1*arguments.val2*arguments.val3*arguments.val4>
+    <cfargument name="value1">
+    <cfargument name= "value2"> 
+    <cfargument name="value3">
+    <cfargument name= "value4"> 
+    <cfset local.product = arguments.value1*arguments.value2*arguments.value3*arguments.value4>
     <cfreturn local.product>
 </cffunction>
 </cfcomponent>
