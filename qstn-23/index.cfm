@@ -128,17 +128,17 @@
                                 </label>
                                 <div class="d-flex phoneDiv" id="phoneDiv">
                                     <div class="d-flex flex-column">
-                                        <input type="text" id="phoneOne" class="phoneOne inputHeight"  maxlength="3">
+                                        <input type="text" id="phoneOne" name="phone1" class="phoneOne inputHeight"  maxlength="3">
                                         <label for="phoneOne" class="dateLabel">###</label>
                                     </div>
                                     <span class="dateSymbol px-1">-</span>
                                     <div class="d-flex flex-column">
-                                        <input type="text" id="phoneTwo" class="phoneOne inputHeight"   maxlength="3">
+                                        <input type="text" id="phoneTwo" name="phone2" class="phoneOne inputHeight"   maxlength="3">
                                         <label for="dateOne" class="dateLabel">###</label>
                                     </div>
                                     <span class="dateSymbol px-1">-</span>
                                     <div class="d-flex flex-column">
-                                        <input type="text" id="phoneThree" class="phoneThree inputHeight"  maxlength="4">
+                                        <input type="text" id="phoneThree" name="phone3" class="phoneThree inputHeight"  maxlength="4">
                                         <label for="dateOne" class="dateLabel ms-1">####</label>
                                     </div>
                                 </div>
@@ -158,11 +158,13 @@
             </div>         
         </form>
         <cfif structKeyExists(form, "submit")>
-            <cfset local.start=form.dateThree AND '-' AND form.dateOne AND '-' AND form.dateTwo>
+            
+            <cfset local.start=dateFormat(createDate(form.dateThree, form.dateOne, form.dateTwo))>
+            <cfset local.phone = form.phone1  AND form.phone2 AND form.phone3>
             <cfset local.salary = form.salaryInputOne AND form.salaryInputTwo>
             <cfset local.obj = new component()>
             <cfset local.result = local.obj.insertRow(form.position,form.relocate,local.start,form.portfolioInput,
-                                    form.emailInput,form.fileInput,local.salary,form.nameInputFirst,form.nameInputLast)>
+                                    form.emailInput,local.phone,form.fileInput,local.salary,form.nameInputFirst,form.nameInputLast)>
         </cfif>   
     </div>
     <script src="js/script.js"></script>

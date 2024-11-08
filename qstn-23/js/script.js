@@ -70,7 +70,7 @@ function validate(){
       document.getElementById('positionError').textContent='';
       document.getElementById("errorLabelPosition").style.removeProperty("color");
     }
-    if (valid==true){
+    if (valid){
       return true
     }
     else{
