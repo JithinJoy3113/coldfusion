@@ -11,18 +11,18 @@
         <div class = "d-flex flex-column justify-content-center align-items-center mt-4">
             <form action="" method="post" id="regForm" enctype="multipart/form-data".>
                 <div class="d-flex flex-column mt-3">
-                    <label for="name" class="label fw-bold" id="errorLabelName">Upload Text File:</label>
-                    <input type="file" id="file" name="file" class="form-control border border-success">
-                    <button type="sumbit" name="submit" id="submitBtn" class="btn btn-success mt-2">Submit</button>
+                    <label for="name" class="label fw-bold" id="errorLabelName">User Login</label>
+                    <input type="email" id="" name="email" class="form-control border border-success">
+                    <input type="text" id="" name="password" class="form-control border border-success">
+                    <button type="sumbit" name="submit" id="submitBtn" class="btn btn-success mt-2">Login</button>
                 </div>
             </form>   
             <cfif structKeyExists(form, "submit")>
                 <cfset local.obj = new components.component()>
-                <cfset local.result = local.obj.fileRead(form.file)>
-                <cfdump  var="#local.result#">
+                <cfset local.result = local.obj.loginPage(form.email,form.password)>
+                <span class="fw-bold text-danger">#local.result#</span>
             </cfif>
         </div>
-        <script src="js/script.js"></script>
     </cfoutput>
 </body>
 </html>
