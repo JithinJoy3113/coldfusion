@@ -147,7 +147,7 @@
                             <li class="inputLi">
                                 <button type="submit" class="submitButton" name='submit' onclick="return validate()">Submit</button>
                             </li>
-                        </ul>
+                        </ul> 
                     </div>
                     <div class="formFooterDiv">
                         This site is protected by reCAPTCHA Enterprise and the Google

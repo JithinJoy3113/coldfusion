@@ -1,0 +1,38 @@
+.linkSpan{
+    padding: 5px 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.signupDiv{
+    height: 400px;
+    width: 450px;
+    padding: 20px 40px;
+}
+.signupHead{
+    font-size: 18px;
+}
+.displayDiv,.displayEditDiv{
+    width: 550px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.pageDisplayDiv{
+    padding: 20px 15px;
+}
+.pageButton{
+    border-radius: 15px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+.adminDeleteColor{
+    background-color: rgb(228, 200, 200);
+}
+.adminEditColor{
+    background-color:rgb(184, 216, 235)
+}
+.displayEditDiv{
+  
+ padding: 20px;
+}
