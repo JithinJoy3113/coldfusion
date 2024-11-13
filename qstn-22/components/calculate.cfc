@@ -6,7 +6,7 @@
         <cfset local.arrayTable = ArrayNew(2)>
         <cfloop index="row" from="1" to="1">
             <cfset local.count = 1>
-            <cfloop index="col" from="1" to="3">
+            <cfloop index="col" from="1" to="#structCount(arguments.data[1])#">
                 <cfset local.arrayTable[row][col] = "#local.keyList[local.count]#">
                 <cfset local.count++>
             </cfloop>

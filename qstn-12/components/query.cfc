@@ -3,7 +3,7 @@
     <cfargument  name="number" required="true">
     <cfset local.structure = structNew()>
         <cfquery name="query" datasource="database-jithin">
-            select *from empDetails
+            select FirstName,LastName from empDetails
         </cfquery>
     <cfset local.result = query>
     <cfreturn local.result>

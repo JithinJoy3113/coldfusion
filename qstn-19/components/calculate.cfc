@@ -6,6 +6,6 @@
             <cfcookie  name="cookieValue" expires=0>
             <cfset cookie.cookieValue=1>
         </cfif>
-    <cfreturn #cookie.cookieValue#>
+        <cfreturn cookie.cookieValue>
     </cffunction>
 </cfcomponent>

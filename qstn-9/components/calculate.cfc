@@ -21,7 +21,6 @@
             <cfset local.result = "Input the datas">
             <cfreturn local.result>
         </cfif> 
-
         <cfreturn session.result>
     </cffunction>
 </cfcomponent>

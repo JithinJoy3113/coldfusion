@@ -1,3 +1,4 @@
+
 .linkSpan{
     padding: 5px 5px;
     font-size: 14px;
@@ -13,11 +14,8 @@
 }
 .displayDiv,.displayEditDiv{
     width: 550px;
-    border: 1px solid black;
+    border: 3px solid  #0b7777;
     border-radius: 5px;
-}
-.pageDisplayDiv{
-    padding: 20px 15px;
 }
 .pageButton{
     border-radius: 15px;
@@ -32,7 +30,70 @@
 .adminEditColor{
     background-color:rgb(184, 216, 235)
 }
-.displayEditDiv{
+.displayEditDiv{ 
+    padding: 20px;
+}
+.signupBody{
+    background-color: #0d9191;
+}
+.signUpHeader{
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #0b7777;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+}
+.signupDiv{
+    margin-top: 100px;
+    border-radius: 20px;
+    background-color: #0b7777;
+    box-shadow: 2px 2px 5px 5px #0b6e6e;
+}
+.textField{
+    padding: 10px 5px;
+    border: none;
+    border-radius: 20px;
+    color: #0b7777;
+}
+.textField::placeholder{
+    color: #0b7777;
+}
+.textField:focus{
+    outline: none;
+}
+.signUpButton{
+    border: none;
+    width: 200px;
+    border-radius: 20px;
+    padding: 10px 0px;
+    color: #0b7777;
+}
+.logoutBtn{
+    font-size: 16px;
+    border: none;
+    padding: 5px 18px;
+    color: #0b7777;
+    border-radius: 20px;
+}
+.pageHead{
+    padding: 18px 200px;
+    font-size: 20px;
+    border: 3px solid  #0b7777;
+    border-radius: 20px;
+    color: #0b7777;
+}
+.displayBtn{
+    background-color:  #0b7777;
+    padding: 10px 0px;
+    margin: 5px 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color:white;
+}
+.logoutConfirm{
+    display:none;
   
- padding: 20px;
+    
 }

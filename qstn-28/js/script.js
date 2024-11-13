@@ -63,4 +63,32 @@ function loginValidation(){
 
 }
 
+function logoutValidate(){
+    let alertDiv=document.getElementById("logoutConfirm").style.display="flex";
+}
+
+function logoutAlert(value){
+    
+    let valid=true;
+    if(value=="yes"){
+        $.ajax({
+            url:'./components/component.cfc?method=logout',
+            type: "get",
+            success: function (response) {
+                if(response){
+                    let alertDiv=document.getElementById("logoutConfirm").style.display="none";
+                }
+                else{
+                    valid=false
+                }
+            }
+         });
+    }
+    else{
+        valid=false;
+        let alertDiv=document.getElementById("logoutConfirm").style.display="none";
+    }
+    return valid;
+}
+
 

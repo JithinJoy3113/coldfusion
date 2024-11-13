@@ -21,4 +21,5 @@
         <cfset arrayAppend(local.arr, session.img)>
         <cfreturn local.arr>
     </cffunction>
+    
 </cfcomponent> 

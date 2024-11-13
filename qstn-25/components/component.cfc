@@ -1,11 +1,9 @@
 <cfcomponent>
     <cffunction  name="fileString" returnType="any">
         <cfargument  name="string">
-
         <cfset local.result = structNew()>
         <cfset local.newList = "">
         <cfset local.charCount = structNew("ordered")>
-
         <cfloop list="#arguments.string#" item="char" delimiters=" /.">           
             <cfif (NOT listContains(local.newList, char)) AND (NOT IsNumeric(char))  AND (len(char) GTE 3) >
                 <cfset local.newList=listAppend(local.newList, char)>           

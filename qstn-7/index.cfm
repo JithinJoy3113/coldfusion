@@ -1,14 +1,13 @@
 <cfapplication name="appliction" sessionmanagement="true">
 <!DOCTYPE html>
 <html lang="en">
-<head>    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-</head>
-<body>
-    <cfoutput>
+    <head>    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
         <div class="d-flex flex-column justify-content-center align-items-center mt-4">
             <h4 class="fw-bold">Display values in key-value</h4>
             <form action="" method="POST">
@@ -19,13 +18,12 @@
                 </div>
             </form>
             <cfif structKeyExists(form,"submit")> 
-                <cfset local.function=new calculate()>
+                <cfset local.function=new components.calculate()>
                 <cfset local.result=local.function.display(form.value1,form.value2)>
                 <span class="fw-bold">      
                     <cfdump  var="#local.result#">
                 </span>
             </cfif>
         </div>
-    </cfoutput>
-</body>
+    </body>
 </html>
