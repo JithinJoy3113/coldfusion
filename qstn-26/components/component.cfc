@@ -2,7 +2,7 @@
 
     <cffunction  name="fileRead" returnType="query">
 
-        <cfargument  name="file">
+        <cfargument  name="file" required="true">
 
         <cfset local.path =ExpandPath("./assets")> 
         <cffile  action="upload" destination="#local.path#" nameConflict="MakeUnique">
@@ -18,19 +18,19 @@
 
        <cfloop list="#local.newList#" item="item">
 
-            <cfquery name="queryCount" datasource="database-jithin">
+            <cfquery name="queryCount">
                 select Words from readFile where Words='#item#'
             </cfquery>
 
             <cfif queryCount.Words LT 1>
-                <cfquery name="query" datasource="database-jithin">
+                <cfquery name="query">
                     insert into readFile(Words) values (<cfqueryparam value='#item#' cfsqltype="cf_sql_varchar">)
                 </cfquery>
             </cfif> 
 
         </cfloop>
 
-        <cfquery name="queryTable" datasource="database-jithin">
+        <cfquery name="queryTable">
             select words from readFile
         </cfquery>
 

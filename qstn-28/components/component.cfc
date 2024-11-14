@@ -25,7 +25,6 @@
         <cfelse>
             <cfset local.result = false>
         </cfif>
-
         <cfreturn local.result>
     </cffunction>
 
@@ -37,10 +36,11 @@
         <cfset local.encrypPass = Hash(#arguments.password#, 'SHA-512')/>
         <cfset local.result = true>
          <cfquery name="selectQuery">
-            select username,password,userrole from loginTable where username='#arguments.userName#'
+            select userId,username,password,userrole from loginTable where username='#arguments.userName#'
         </cfquery>
         <cfset session.userName = selectQuery.username>
         <cfset session.role = selectQuery.userrole>
+        <cfset session.userId = selectQuery.userId>
         <cfset session.login = true>
         <cfif selectQuery.password  NEQ #local.encrypPass#>
             <cfset local.result=false>
@@ -52,9 +52,18 @@
 
     <cffunction  name="displayPages" returnType="query">
         <cfquery name="displayTable">
-            select pagename,pagedesc,pageid from pageTable
+            select pagename,pagedesc,pageid from pageTable where createdBy='#session.userId#'
         </cfquery>
         <cfreturn displayTable>
+    </cffunction>
+
+<!---     userView Page --->
+
+    <cffunction  name="displayUserPages" returnType="query">
+        <cfquery name="displayUserTable">
+            select pagename,pagedesc,pageid from pageTable
+        </cfquery>
+        <cfreturn displayUserTable>
     </cffunction>
 
 <!---     Admin edit rows page--->
@@ -74,19 +83,32 @@
         <cfargument  name="id" required="true">
         <cfargument  name="title" required="true">
         <cfargument  name="description" required="true">
-         <cfquery name="editRow">
-            update pageTable set pagename = '#arguments.title#', pagedesc= '#arguments.description#' where pageid = '#arguments.id#';
+
+        <cfquery name="nameSelect">
+            select pageName from pageTable where pageName = <cfqueryparam value='#arguments.title#' cfsqltype="cf_sql_varchar">
         </cfquery>
-        <cfreturn true>
+        <cfif QueryRecordCount(nameSelect) LT 1>
+            <cfquery name="editRow">
+                    update pageTable set pagename = <cfqueryparam value='#arguments.title#' cfsqltype="cf_sql_varchar">,
+                        pagedesc = <cfqueryparam value='#arguments.description#' cfsqltype="cf_sql_varchar">,
+                        updatedOn = <cfqueryparam value='#dateFormat(now())#' cfsqltype="cf_sql_varchar">,
+                        updatedBy = <cfqueryparam value='#session.userId#' cfsqltype="cf_sql_varchar">
+                        where pageid = <cfqueryparam value='#arguments.id#' cfsqltype="cf_sql_varchar">
+            </cfquery>
+            <cfreturn true>
+        </cfif>
+        <cfreturn false>
     </cffunction>
 
 <!---     Admin delete page --->
 
-    <cffunction  name="deleteRow">
+    <cffunction  name="deleteRow" access="remote">
+    
         <cfargument  name="id" required="true">
         <cfquery name="deleteTableRow">
             delete from pageTable where pageid='#arguments.id#';
         </cfquery>
+        <cfreturn true>
     </cffunction>
 
 <!---     Admin add page --->
@@ -94,21 +116,31 @@
     <cffunction  name="addRow" returnType="boolean">
         <cfargument  name="title">
         <cfargument  name="desc">
-        <cfif trim(len(arguments.title)) AND trim(len(arguments.desc))>
+
+         <cfquery name="nameSelect">
+            select pageName from pageTable where pageName = <cfqueryparam value='#arguments.title#' cfsqltype="cf_sql_varchar">
+        </cfquery>
+
+        <cfif trim(len(arguments.title)) AND trim(len(arguments.desc)) AND QueryRecordCount(nameSelect) LT 1>
             <cfquery name="addTableRow">
-            insert into pageTable (pagename,pagedesc) 
-                values(<cfqueryparam value='#arguments.title#' cfsqltype="cf_sql_varchar">,
-                        <cfqueryparam value='#arguments.desc#' cfsqltype="cf_sql_varchar">);
+                insert into pageTable (pagename, pagedesc, createdOn, createdBy, updatedOn, updatedBy) 
+                    values(<cfqueryparam value='#arguments.title#' cfsqltype="cf_sql_varchar">,
+                        <cfqueryparam value='#arguments.desc#' cfsqltype="cf_sql_varchar">,
+                        <cfqueryparam value='#dateFormat(now())#' cfsqltype="cf_sql_varchar">,
+                        <cfqueryparam value='#session.userId#' cfsqltype="cf_sql_varchar">,
+                        <cfqueryparam value='#dateFormat(now())#' cfsqltype="cf_sql_varchar">,
+                        <cfqueryparam value='#session.userId#' cfsqltype="cf_sql_varchar">
+                        );
             </cfquery> 
+            <cfreturn true>
         </cfif>      
-        <cfreturn true>
+        <cfreturn false>
     </cffunction>
 
 <!---     Logout --->
 
     <cffunction  name="logout" returnType="boolean" access="remote">
         <cfset structClear(session)>
-
         <cfreturn true>
     </cffunction>
 

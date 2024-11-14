@@ -73,10 +73,11 @@ function logoutAlert(value){
     if(value=="yes"){
         $.ajax({
             url:'./components/component.cfc?method=logout',
-            type: "get",
+            type: "post",
             success: function (response) {
                 if(response){
                     let alertDiv=document.getElementById("logoutConfirm").style.display="none";
+                    // location.reload();
                 }
                 else{
                     valid=false
@@ -87,6 +88,38 @@ function logoutAlert(value){
     else{
         valid=false;
         let alertDiv=document.getElementById("logoutConfirm").style.display="none";
+    }
+    return valid;
+}
+
+var deleteId;
+function deleteButton(pageId){
+    deleteId=pageId.value;
+    let alertDiv=document.getElementById("deleteConfirm").style.display="flex";
+}
+function deleteAlert(confirm){
+    
+    let valid=true;
+    if(confirm=="yes"){
+        $.ajax({
+            url:'./components/component.cfc?method=deleteRow',
+            type: "post",
+            data:{
+                id:deleteId
+            },
+            success: function (response) {
+                if(response){
+                    let alertDiv=document.getElementById("deleteConfirm").style.display="none";
+                }
+                else{
+                    valid=false
+                }
+            }
+         });
+    }
+    else{
+        valid=false;
+        let alertDiv=document.getElementById("deleteConfirm").style.display="none";
     }
     return valid;
 }

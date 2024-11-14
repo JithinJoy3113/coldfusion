@@ -20,13 +20,13 @@
                         <span class="mailError fw-bold text-danger" id="mailError"></span>
                         <select name="userRole" id="userRole" class="textField userSelect mt-3">
                             <option value="" class="textField">--Select User Type--</option>
-                            <option value="user" class="textField">Public</option>
-                            <option value="admin" class="textField">Admin</option>
+                            <option value="1" class="textField">Admin</option>
+                            <option value="2" class="textField">Public</option>
                         </select>
                         <span class="roleError fw-bold text-danger" id="roleError"></span>
-                        <input type="password" name="password" class="textField passwordInput mt-3" id="password" placeholder="Enter the password">
+                        <input type="text" name="password" class="textField passwordInput mt-3" id="password" placeholder="Enter the password">
                         <span class="passwordError fw-bold text-danger" id="passwordError"></span>
-                        <input type="password" class="textField confirmInput mt-3" id="confirmPassword" placeholder="Re-enter the password">
+                        <input type="text" class="textField confirmInput mt-3" id="confirmPassword" placeholder="Re-enter the password">
                         <span class="confirmpasswordError fw-bold text-danger" id="confirmpasswordError"></span>
                     </div>
                     <button type="submit" name="submit" class="fw-bold signUpButton mt-4 mx-auto" onClick="return signUpValidate()">SignUp</button>

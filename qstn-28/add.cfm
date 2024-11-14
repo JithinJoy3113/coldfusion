@@ -30,13 +30,16 @@
                         </div>
                     </div>
                 </form>
-                <cfif structKeyExists(form, "submit")>
-                    <cfdump  var="var">
-                    <cfset local.obj = new components.component()>
-                    <cfset local.result = local.obj.addRow(form.titleInput,form.descriptionText)>
+            </div> 
+            <cfif structKeyExists(form, "submit")>
+                <cfset local.obj = new components.component()>
+                <cfset local.result = local.obj.addRow(form.titleInput,form.descriptionText)>
+                <cfif local.result>
                     <cflocation  url="admin.cfm">
+                <cfelse>
+                    <span class="fw-bold text-danger">Page Name Already Exist</span>
                 </cfif>
-            </div>
+            </cfif>
         </cfoutput>
     </body>
 </html>

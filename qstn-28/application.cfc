@@ -4,7 +4,7 @@
     <cfset this.name = 'this.name'>
     <cfset this.sessionManagement = true>
     <cfset this.datasource = "database-jithin">
-
+    
     <cffunction  name="onRequest" returnType="void">
      
         <cfargument  name="requestPage" required="true"> 
@@ -17,7 +17,6 @@
         <cfelse>
             <cfinclude  template="login.cfm">
         </cfif>
-        
     </cffunction>
 
  </cfcomponent>
