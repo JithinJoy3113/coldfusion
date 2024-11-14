@@ -1,0 +1,19 @@
+let table=document.getElementById('table');
+let row=document.createElement('tr');
+let keys=Object.keys(data[1]);
+var th;
+for (const element of keys) {
+    th=document.createElement('th');
+    th.textContent=element;
+    row.appendChild(th);
+}
+table.appendChild(row);
+for (const set of data) {
+    let row=document.createElement('tr');
+    for (const key in set) {
+        let td=document.createElement('td');
+        td.textContent=set[key];
+        row.appendChild(td);
+    }
+    table.appendChild(row);
+}

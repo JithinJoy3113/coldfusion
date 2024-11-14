@@ -38,3 +38,57 @@ ul{
     font-size: 12px;
     font-weight: bold;
 }
+.dateOne{
+    width: 19px;
+    height: 26px;
+}
+.dateThree{
+    width:35px;
+    height: 26px;
+}
+.dateLabel,.fileInput{
+    font-size: 12px;
+}
+.inputHeight{
+    height: 26px;
+}
+.portfolioInput{
+    font-size: 12px;
+    width: 394px;
+}
+.salaryInputOne{
+    width: 85px;
+}
+.contactDetails{
+    font-size: 15px;
+    padding: 10px 5px 2px 5px;
+    border-top: 1px dotted #ccc;
+}
+.nameInputFisrt{
+    width: 68px;
+}
+.nameInputSecond{
+    width: 118px;
+}
+.phoneOne{
+    width: 27px;
+}
+.phoneThree{
+    width: 35px;
+}
+.submitButton{
+    font-size: 15px;
+    width: 67px;
+    height: 22px;
+    padding: 0 7px;
+}
+.formFooterDiv{
+    color: #7e7e7e;
+    padding: 20px 6px;
+    font-size: 13px;
+}
+.error{
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+}

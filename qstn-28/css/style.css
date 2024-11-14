@@ -1,0 +1,120 @@
+
+.linkSpan{
+    padding: 5px 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.signupDiv{
+    height: 400px;
+    width: 450px;
+    padding: 20px 40px;
+}
+.signupHead{
+    font-size: 18px;
+}
+.displayDiv,.displayEditDiv{
+    width: 550px;
+    border: 3px solid  #0b7777;
+    border-radius: 5px;
+}
+.pageButton{
+    border-radius: 15px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+.adminDeleteColor{
+    background-color:  #0b7777;
+}
+.adminEditColor{
+    background-color: #0b7777;
+}
+.displayEditDiv{ 
+    padding: 20px;
+}
+.signupBody{
+    background-color: #0d9191;
+}
+.signUpHeader{
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #0b7777;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+}
+.signupDiv{
+    margin-top: 100px;
+    border-radius: 20px;
+    background-color: #0b7777;
+    box-shadow: 2px 2px 5px 5px #0b6e6e;
+}
+.textField{
+    padding: 10px 5px;
+    border: none;
+    border-radius: 20px;
+    color: #0b7777;
+}
+.textField::placeholder{
+    color: #0b7777;
+}
+.textField:focus{
+    outline: none;
+}
+.signUpButton{
+    border: none;
+    width: 200px;
+    border-radius: 20px;
+    padding: 10px 0px;
+    color: #0b7777;
+}
+.logoutBtn{
+    font-size: 16px;
+    border: none;
+    padding: 5px 18px;
+    color: #0b7777;
+    border-radius: 20px;
+}
+.pageHead{
+    padding: 18px 200px;
+    font-size: 20px;
+    border: 3px solid  #0b7777;
+    border-radius: 20px;
+    color: #0b7777;
+}
+.displayBtn{
+    background-color:  #0b7777;
+    padding: 10px 0px;
+    margin: 5px 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color:white;
+}
+.logoutConfirm,.deleteConfirm{
+    display:none;
+}
+.pageDisplayDiv{
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color:  #0b7777;
+}
+.editInput{
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color:  #bffafa;
+}
+.editButton{
+    background-color: #0b7777;
+    color: white;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 20px;
+}
+.iconBackground{
+    background-color: #0b7777;
+}

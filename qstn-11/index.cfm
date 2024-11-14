@@ -26,7 +26,7 @@
             <cfset arrayAppend(local.numArray, #item#)>
          </cfloop>
         <cfif arrayLen(local.numArray)>
-            <cfset local.function=new calculate()>
+            <cfset local.function=new components.calculate()>
             <cfset local.result=local.function.multiply(local.numArray)>
         <cfelseif arrayLen(local.numArray) LT 2>
             <span class="fw-bold">Enter Mininum 2 Numbers</span>
