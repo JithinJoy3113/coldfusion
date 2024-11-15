@@ -12,8 +12,7 @@ function signUpValidate(){
     }
     else{
         document.getElementById('mailError').textContent='';
-    }   
-      
+    }         
     if (password == "" || !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,25}$/.test(password)){
 		document.getElementById('passwordError').textContent='Please enter a strong password';
 	    valid=false;
@@ -27,14 +26,12 @@ function signUpValidate(){
 	}else{
 		document.getElementById('roleError').textContent='';
 	}
-
     if (confirm == "" || password != confirm){
 		document.getElementById('confirmpasswordError').textContent='Password Missmatch';
 	    valid=false;
 	}else{
 		document.getElementById('confirmpasswordError').textContent='';
 	}
-
     return valid;
   
 }
@@ -64,7 +61,8 @@ function loginValidation(){
 }
 
 function logoutValidate(){
-    let alertDiv=document.getElementById("logoutConfirm").style.display="flex";
+    document.getElementById("logoutConfirm").style.display="flex";
+    document.getElementById("displayContent").classList.add("disabled");
 }
 
 function logoutAlert(value){
@@ -77,7 +75,7 @@ function logoutAlert(value){
             success: function (response) {
                 if(response){
                     let alertDiv=document.getElementById("logoutConfirm").style.display="none";
-                    // location.reload();
+                    document.getElementById("displayContent").classList.remove("disabled");
                 }
                 else{
                     valid=false
@@ -87,7 +85,8 @@ function logoutAlert(value){
     }
     else{
         valid=false;
-        let alertDiv=document.getElementById("logoutConfirm").style.display="none";
+        document.getElementById("logoutConfirm").style.display="none";
+        document.getElementById("displayContent").classList.remove("disabled");
     }
     return valid;
 }
@@ -96,6 +95,7 @@ var deleteId;
 function deleteButton(pageId){
     deleteId=pageId.value;
     let alertDiv=document.getElementById("deleteConfirm").style.display="flex";
+    document.getElementById("displayContent").classList.add("disabled");
 }
 function deleteAlert(confirm){
     
@@ -110,16 +110,19 @@ function deleteAlert(confirm){
             success: function (response) {
                 if(response){
                     let alertDiv=document.getElementById("deleteConfirm").style.display="none";
+                    document.getElementById("displayContent").classList.remove("disabled");
                 }
                 else{
                     valid=false
+                    document.getElementById("displayContent").classList.remove("disabled");
                 }
             }
          });
     }
     else{
         valid=false;
-        let alertDiv=document.getElementById("deleteConfirm").style.display="none";
+        document.getElementById("deleteConfirm").style.display="none";
+        document.getElementById("displayContent").classList.remove("disabled");
     }
     return valid;
 }

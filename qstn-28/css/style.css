@@ -1,16 +1,9 @@
-
-.linkSpan{
-    padding: 5px 5px;
-    font-size: 14px;
-    font-weight: bold;
-}
-.signupDiv{
-    height: 400px;
-    width: 450px;
-    padding: 20px 40px;
+*{
+    margin: 0;
+    padding: 0;
 }
 .signupHead{
-    font-size: 18px;
+    font-size: 25px;
 }
 .displayDiv,.displayEditDiv{
     width: 550px;
@@ -45,7 +38,9 @@
     color: white;
 }
 .signupDiv{
-    margin-top: 100px;
+    width: 450px;
+    padding: 20px 40px;   
+    margin-top: 60px;
     border-radius: 20px;
     background-color: #0b7777;
     box-shadow: 2px 2px 5px 5px #0b6e6e;
@@ -93,7 +88,40 @@
     color:white;
 }
 .logoutConfirm,.deleteConfirm{
+    flex-direction: column;
+    position: absolute;
+    top: 200px;
+    background-color: white;
+    box-shadow: 1px 1px 3px 3px rgb(231, 103, 103);
     display:none;
+}
+.logoutMesage{
+    padding: 20px 40px;
+}
+.pageListDiv{
+    position: relative;
+}
+.alertBtn{
+    border: none;
+    border-radius: 20px;
+    background-color:  rgb(226, 62, 62);
+    padding: 10px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+.alertCancelBtn{
+    border: none;
+    border-radius: 20px;
+    background-color:  rgb(238, 220, 220);
+    padding: 10px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+
+.logourtAlertHead{
+    background-color: rgb(226, 62, 62);
 }
 .pageDisplayDiv{
     margin: 10px 5px;
@@ -117,4 +145,11 @@
 }
 .iconBackground{
     background-color: #0b7777;
+}
+.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+.addButton{
+    margin-left: 90.5%;
 }

@@ -35,11 +35,11 @@
             </form>
             <cfif structKeyExists(form, "submit")>
                 <cfset local.obj = new components.component()>
-                <cfset local.result = local.obj.signUp(form.userName, form.userRole, form.password)>   
+                <cfset local.result = local.obj.signUp(trim(form.userName), form.userRole, form.password)>   
                 <cfif local.result>
                     <span class="text-success fw-bold">SignUp Completed</span>
                 <cfelse>
-                    <span class="text-danger fw-bold">User already exists</span>
+                    <span class="text-danger fw-bold">User Name already exists</span>
                 </cfif>     
             </cfif>
         </div>

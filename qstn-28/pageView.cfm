@@ -18,7 +18,7 @@
                 <div class="d-flex justify-content-center">
                     <cfset local.title = session.userViewData.pagename>
                     <cfset local.desc = session.userViewData.pagedesc>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mx-auto">
                         <span class="pageHead fw-bold mx-auto my-4">#local.title#</span>
                         <div class="pageEditDiv">
                             <div class="displayEditDiv d-flex flex-column">

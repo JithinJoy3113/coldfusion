@@ -16,7 +16,7 @@
                     <button class="logoutBtn fw-bold" type = "button" name="logout" onclick="logoutValidate()">Logout</button>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column" id = "displayContent">
                         <span class="pageHead fw-bold mx-auto my-4">List of pages</span>
                         <div class="pageListDiv">
                             <cfset local.obj = new components.component()>
@@ -34,12 +34,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                 <div class="logoutConfirm" id="logoutConfirm">
-                    <span class="confirmMessage">Are you sure want to logout?</span>
-                    <button class="alertBtn" type="submit" name="alertBtn" id="alertBtn" onClick="return logoutAlert('yes')">Logout</button>
-                    <button class="alertBtn" type="submit" name="alertBtn" id="alertBtn" onClick="return logoutAlert('no')">Cancel</button>
-                </div>
+                    <div class="logoutConfirm" id="logoutConfirm">
+                        <span class="logourtAlertHead py-2 d-flex justify-content-center fw-bold text-white">Logout Alert</span>
+                        <div class="logoutMesage  d-flex flex-column justify-content-center">
+                            <span class="confirmMessage fw-bold">Are you sure want to logout?</span>
+                            <button class="alertBtn mt-3" type="submit" name="alertBtn" id="alertBtn" onClick="return logoutAlert('yes')">Logout</button>
+                            <button class="alertCancelBtn mt-2" type="submit" name="alertBtn" id="alertBtn" onClick="return logoutAlert('no')">Cancel</button>
+                        </div>
+                    </div>
+                </div>               
             </form>
             <cfif structKeyExists(form,"pageViewBtn")>
                 <cfset local.obj = new components.component()>

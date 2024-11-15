@@ -34,12 +34,7 @@
             <cfif structKeyExists(form, "submit")>     
                 <cfset local.obj = new components.component()>
                 <cfset local.result = local.obj.editTableRow(form.submit,form.titleInput,form.descriptionText)>
-                <cfif local.result>
-                    <cfset local.obj.editRow(form.submit)>
-                    <cflocation  url="admin.cfm">
-                <cfelse>
-                    <span class="fw-bold text-danger">Page Name Already Exist</span>
-                </cfif>
+                <cflocation  url="admin.cfm">
             </cfif>
             <cfif structKeyExists(form,"logout")>
                 <cfset local.obj = new components.component()>
