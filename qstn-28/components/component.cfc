@@ -83,21 +83,14 @@
         <cfargument  name="id" required="true">
         <cfargument  name="title" required="true">
         <cfargument  name="description" required="true">
-
-        <cfquery name="nameSelect">
-            select pageName from pageTable where pageName = <cfqueryparam value='#arguments.title#' cfsqltype="cf_sql_varchar">
+        <cfquery name="editRow">
+            update pageTable set pagename = <cfqueryparam value='#arguments.title#' cfsqltype="cf_sql_varchar">,
+                pagedesc = <cfqueryparam value='#arguments.description#' cfsqltype="cf_sql_varchar">,
+                updatedOn = <cfqueryparam value='#dateFormat(now())#' cfsqltype="cf_sql_varchar">,
+                updatedBy = <cfqueryparam value='#session.userId#' cfsqltype="cf_sql_varchar">
+                where pageid = <cfqueryparam value='#arguments.id#' cfsqltype="cf_sql_varchar">
         </cfquery>
-        <cfif QueryRecordCount(nameSelect) LT 1>
-            <cfquery name="editRow">
-                    update pageTable set pagename = <cfqueryparam value='#arguments.title#' cfsqltype="cf_sql_varchar">,
-                        pagedesc = <cfqueryparam value='#arguments.description#' cfsqltype="cf_sql_varchar">,
-                        updatedOn = <cfqueryparam value='#dateFormat(now())#' cfsqltype="cf_sql_varchar">,
-                        updatedBy = <cfqueryparam value='#session.userId#' cfsqltype="cf_sql_varchar">
-                        where pageid = <cfqueryparam value='#arguments.id#' cfsqltype="cf_sql_varchar">
-            </cfquery>
-            <cfreturn true>
-        </cfif>
-        <cfreturn false>
+        <cfreturn true>
     </cffunction>
 
 <!---     Admin delete page --->

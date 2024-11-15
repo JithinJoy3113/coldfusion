@@ -11,12 +11,13 @@
         <cfoutput>
             <form action="" method="post" id="loginForm">
                 <div class="signUpHeader adminHeaderDiv d-flex justify-content-between px-4">
-                    <a href="user.cfm" class="text-decoration-none fw-bold text-white">Home</a>
+                    <a href="admin.cfm" class="text-decoration-none fw-bold text-white">Home</a>
                     <span class="adminHead">Admin Page</span>
                     <button class="logoutBtn fw-bold" type = "button" name="logout" onclick="logoutValidate()">Logout</button>
-                </div>     
+                </div>  
+                <button type="submit" class="editButton mt-3 addButton" name="addBtn" value="">Add Page</button>   
                 <div class="d-flex justify-content-center">
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column" id="displayContent">
                         <span class="pageHead fw-bold mx-auto my-4">List of pages</span>
                         <div class="pageListDiv">
                             <cfset local.obj = new components.component()>
@@ -36,19 +37,24 @@
                                     </div>
                                 </cfloop>
                             </div>
-                            <button type="submit" class="editButton mt-3" name="addBtn" value="">Add Page</button>
                         </div>
                     </div>
-                </div>
-                <div class="logoutConfirm" id="logoutConfirm">
-                    <span class="confirmMessage">Are you sure want to logout?</span>
-                    <button class="alertBtn" type="submit" name="alertBtn" id="alertBtn" onClick="return logoutAlert('yes')">Logout</button>
-                    <button class="alertBtn" type="submit" name="alertBtn" id="alertBtn" onClick="return logoutAlert('no')">Cancel</button>
-                </div>
-                <div class="deleteConfirm" id="deleteConfirm">
-                    <span class="confirmMessage">Are you sure want to Delete?</span>
-                    <button class="alertDeleteBtn" type="submit" name="alertDeleteBtn" id="alertDeleteBtn" onClick="return deleteAlert('yes')">Delete</button>
-                    <button class="alertDeleteBtn" type="sumbit" name="alertDeleteBtn" id="alertDeleteBtn" onClick="return deleteAlert('no')">Cancel</button>
+                    <div class="logoutConfirm" id="logoutConfirm">
+                        <span class="logourtAlertHead py-2 d-flex justify-content-center fw-bold text-white">Logout Alert</span>
+                        <div class="logoutMesage  d-flex flex-column justify-content-center">
+                            <span class="confirmMessage fw-bold">Are you sure want to logout?</span>
+                            <button class="alertBtn mt-3" type="submit" name="alertBtn" id="alertBtn" onClick="return logoutAlert('yes')">Logout</button>
+                            <button class="alertCancelBtn mt-2" type="submit" name="alertBtn" id="alertBtn" onClick="return logoutAlert('no')">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="deleteConfirm" id="deleteConfirm">
+                        <span class="logourtAlertHead py-2 d-flex justify-content-center fw-bold text-white">Delete Page</span>
+                        <div class="logoutMesage  d-flex flex-column justify-content-center">
+                            <span class="confirmMessage fw-bold">Are you sure want to Delete?</span>
+                            <button class="alertBtn mt-3" type="submit" name="alertDeleteBtn" id="alertDeleteBtn" onClick="return deleteAlert('yes')">Delete</button>
+                            <button class="alertCancelBtn mt-2" type="sumbit" name="alertDeleteBtn" id="alertDeleteBtn" onClick="return deleteAlert('no')">Cancel</button>
+                        </div>
+                    </div>
                 </div>
             </form>
             <cfif structKeyExists(form, "editBtn")>
